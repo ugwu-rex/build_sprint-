@@ -1,0 +1,743 @@
+/* Define colors as CSS variables for easy changes */
+:root {
+    --primary-blue: #2D8CFF;
+    --dark-blue: #0F172A;
+    --green: #22C55E;
+    --light-green: #F0FDF4;
+    --dark-text: #1E293B;
+    --gray-text: #64748B;
+    --light-border: #E2E8F0;
+    --light-bg: #F8FAFC;
+    --white: #FFFFFF;
+    --warning-yellow-bg: #FFFBEB;
+    --warning-text: #B45309;
+    --warning-yellow-border: #FEF3C7;
+    --footer-bg: #0B1120;
+    --footer-gray: #94A3B8;
+    --button-blue: #2563EB;
+    --button-blue-dark: #1D4ED8;
+}
+
+/* Remove default spacing and set basic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Set background and text color for whole page */
+body {
+    background-color: var(--light-bg);
+    color: var(--dark-text);
+    line-height: 1.5;
+}
+
+
+/* Remove underlines from links and keep default color */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Remove bullet points from lists */
+ul {
+    list-style: none;
+}
+
+/* HEADER STYLES */
+.main-header {
+    padding: 24px 40px;
+}
+
+/* Back link styling */
+.back-link {
+    color: var(--gray-text);
+    font-size: 14px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.back-link:hover {
+    color: var(--dark-text);
+}
+
+/* MAIN CONTAINER STYLES */
+.checkout-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px 60px;
+}
+
+/* Header at top of checkout page */
+.checkout-header {
+    margin-bottom: 32px;
+}
+
+.checkout-header h1 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.checkout-header p {
+    color: var(--gray-text);
+    font-size: 14px;
+}
+
+/* Create two column layout */
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 40px;
+}
+
+/* Payment methods section heading */
+.payment-section h2 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+/* Grid for payment method cards */
+.payment-methods-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+/* Style each payment method card */
+.payment-card {
+    background: var(--white);
+    border: 1px solid var(--light-border);
+    border-radius: 12px;
+    padding: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.payment-card:hover {
+    border-color: var(--primary-blue);
+}
+
+/* Highlight selected payment method */
+.payment-card.active {
+    border-color: var(--primary-blue);
+    background-color: #F0F9FF;
+    box-shadow: 0 0 0 1px var(--primary-blue);
+}
+
+/* Icon box inside payment cards */
+.icon-wrapper {
+    width: 40px;
+    height: 40px;
+    background: #F1F5F9;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--dark-text);
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.payment-card.active .icon-wrapper {
+    background: var(--primary-blue);
+    color: var(--white);
+}
+
+/* Text inside payment cards */
+.card-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-title {
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.card-desc {
+    font-size: 12px;
+    color: var(--gray-text);
+}
+
+/* Green badge for discount */
+.badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: var(--green);
+    color: var(--white);
+    font-size: 10px;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 12px;
+    z-index: 1;
+}
+
+/* Checkmark for active payment */
+.check-mark {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    color: var(--primary-blue);
+    display: none;
+}
+
+.payment-card.active .check-mark {
+    display: block;
+}
+
+/* Green discount banner */
+.discount-banner {
+    background: var(--light-green);
+    border: 1px solid #BBF7D0;
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    gap: 12px;
+    margin-bottom: 32px;
+}
+
+.banner-icon {
+    color: var(--green);
+    font-size: 18px;
+}
+
+.banner-text strong {
+    display: block;
+    color: #14532D;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.banner-text p {
+    color: #166534;
+    font-size: 13px;
+}
+
+
+/* Crypto payment section styles */
+.crypto-details-section h3 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: var(--gray-text);
+}
+
+/* Buttons to select cryptocurrency */
+.crypto-options {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.crypto-btn {
+    flex: 1;
+    background: var(--white);
+    border: 1px solid var(--light-border);
+    border-radius: 8px;
+    padding: 12px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    transition: all 0.2s;
+}
+
+.crypto-btn:hover {
+    border-color: var(--gray-text);
+}
+
+/* Active crypto button styling */
+.crypto-btn.active {
+    border-color: var(--primary-blue);
+    background: #F0F9FF;
+    color: var(--primary-blue);
+}
+
+.crypto-symbol {
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.crypto-name {
+    font-size: 11px;
+    color: var(--gray-text);
+}
+
+.crypto-btn.active .crypto-name {
+    color: var(--primary-blue);
+}
+
+/* Wallet address display */
+.wallet-address-container {
+    margin-bottom: 24px;
+}
+
+.wallet-address-container label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--primary-blue);
+    margin-bottom: 8px;
+}
+
+/* Box showing wallet address */
+.address-box {
+    background: #EFF6FF;
+    border: 1px solid #DBEAFE;
+    border-radius: 8px;
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.address-box span {
+    font-family: monospace;
+    font-size: 13px;
+    color: var(--dark-text);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-right: 12px;
+}
+
+/* Copy button styling */
+.copy-btn {
+    background: none;
+    border: none;
+    color: var(--primary-blue);
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.copy-btn:hover {
+    text-decoration: underline;
+}
+
+/* Warning box with yellow background */
+.warning-box {
+    background: var(--warning-yellow-bg);
+    border: 1px solid var(--warning-yellow-border);
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    gap: 12px;
+}
+
+.warning-icon {
+    color: #D97706;
+    font-size: 18px;
+}
+
+.warning-content strong {
+    display: block;
+    color: #92400E;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.warning-content ul {
+    list-style: disc;
+    padding-left: 16px;
+}
+
+.warning-content li {
+    color: #B45309;
+    font-size: 12px;
+    margin-bottom: 4px;
+}
+
+/* Bank transfer details box */
+.bank-info-box {
+    background: #EFF6FF;
+    border: 1px solid #DBEAFE;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 24px;
+}
+
+.bank-info-box h3 {
+    color: var(--primary-blue);
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+/* Layout for bank info items */
+.bank-info-grid {
+    display: grid;
+    gap: 12px;
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+}
+
+.info-item .label {
+    color: var(--gray-text);
+}
+
+.info-item .value {
+    color: var(--dark-text);
+    font-weight: 500;
+    font-family: monospace;
+    text-align: right;
+}
+
+/* Instruction box for bank transfer */
+.instruction-box {
+    background: #FFFBEB;
+    border: 1px solid #FEF3C7;
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+/* Input fields for user's bank info */
+.user-bank-inputs label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: var(--dark-text);
+}
+
+.user-bank-inputs .input-group {
+    margin-bottom: 16px;
+}
+
+.user-bank-inputs input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--light-border);
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.user-bank-inputs input:focus {
+    border-color: var(--primary-blue);
+}
+
+/* ORDER SUMMARY SECTION */
+.summary-card {
+    background: var(--white);
+    border: 1px solid var(--light-border);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.summary-card h2 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 24px;
+}
+
+/* Flight info display */
+.flight-info {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--light-border);
+}
+
+.airline-icon {
+    width: 40px;
+    height: 40px;
+    background: #F0F9FF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-blue);
+}
+
+.route {
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.flight-meta {
+    font-size: 12px;
+    color: var(--gray-text);
+}
+
+/* Details about flight (date, time, passengers) */
+.summary-details {
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--light-border);
+}
+
+.detail-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    color: var(--gray-text);
+    font-size: 13px;
+}
+
+.detail-row i {
+    width: 16px;
+}
+
+/* Price breakdown section */
+.price-breakdown {
+    margin-bottom: 24px;
+}
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: var(--dark-text);
+}
+
+.price-row.discount {
+    color: var(--green);
+}
+
+/* Total price section */
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 24px;
+    padding-top: 16px;
+    border-top: 1px solid var(--light-border);
+}
+
+.total-label {
+    display: flex;
+    flex-direction: column;
+}
+
+.total-label span:first-child {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.saved-amount {
+    font-size: 12px;
+    color: var(--green);
+}
+
+.total-price {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--dark-text);
+}
+
+/* Pay button */
+.pay-button {
+    width: 100%;
+    background: #2E86AB;
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    padding: 14px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    margin-bottom: 16px;
+    transition: background 0.2s;
+}
+
+.pay-button:hover {
+    background: #246d8c;
+}
+
+/* Small info box */
+.info-note {
+    background: #EFF6FF;
+    border-radius: 8px;
+    padding: 12px;
+    display: flex;
+    gap: 10px;
+    font-size: 11px;
+    color: #1E40AF;
+    line-height: 1.4;
+}
+
+/* Payment details section info */
+.payment-details-section {
+    margin-bottom: 24px;
+}
+
+/* Security message at bottom */
+.security-footer {
+    margin-top: 40px;
+    text-align: center;
+    color: var(--gray-text);
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+
+/* FOOTER STYLES */
+.main-footer {
+    background: var(--footer-bg);
+    color: var(--footer-gray);
+    padding: 60px 40px 20px;
+    font-size: 14px;
+}
+
+/* Footer content layout */
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 2fr 1.5fr;
+    gap: 60px;
+    margin-bottom: 60px;
+}
+
+/* Brand column in footer */
+.brand-col p {
+    margin-bottom: 24px;
+    line-height: 1.6;
+}
+
+.contact-info p {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Layout for footer links */
+.footer-links-group {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+/* Footer column styling */
+.footer-column h4 {
+    color: var(--white);
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.footer-column ul li {
+    margin-bottom: 12px;
+}
+
+.footer-column ul li a:hover {
+    color: var(--white);
+}
+
+/* Newsletter form */
+.newsletter-form {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.newsletter-form input {
+    flex: 1;
+    background: #1E293B;
+    border: 1px solid #334155;
+    border-radius: 6px;
+    padding: 10px 16px;
+    color: var(--white);
+}
+
+.newsletter-form button {
+    background: #2E86AB;
+    color: var(--white);
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* Footer bottom section */
+.footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 24px;
+    border-top: 1px solid #1E293B;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Social media links */
+.social-links {
+    display: flex;
+    gap: 12px;
+}
+
+.social-links a {
+    width: 32px;
+    height: 32px;
+    background: #1E293B;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.social-links a:hover {
+    background: #2E86AB;
+    color: var(--white);
+}
+
+/* RESPONSIVE DESIGN - Medium screens */
+@media (max-width: 900px) {
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+/* RESPONSIVE DESIGN - Small screens */
+@media (max-width: 600px) {
+    .payment-methods-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-links-group {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+}
