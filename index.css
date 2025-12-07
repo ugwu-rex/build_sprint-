@@ -608,10 +608,6 @@ ul {
     color: var(--footer-gray);
     padding: 60px 40px 20px;
     font-size: 14px;
-    width: 100vw;
-    left: 0;
-    position: relative;
-    box-sizing: border-box;
 }
 
 /* Footer content layout */
@@ -622,7 +618,6 @@ ul {
     grid-template-columns: 1.5fr 2fr 1.5fr;
     gap: 60px;
     margin-bottom: 60px;
-    width: 100%;
 }
 
 /* Brand column in footer */
@@ -694,7 +689,6 @@ ul {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
 }
 
 /* Social media links */
@@ -739,8 +733,6 @@ ul {
     .main-footer {
         padding-left: 20px;
         padding-right: 20px;
-        width: 100vw;
-        box-sizing: border-box;
     }
 
     .payment-methods-grid {
@@ -755,20 +747,6 @@ ul {
         flex-direction: column;
         gap: 20px;
         text-align: center;
-        width: 100vw;
-        box-sizing: border-box;
-    }
-
-    .main-footer {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100vw;
-        z-index: 100;
-        box-sizing: border-box;
-    }
-
-    body {
-        padding-bottom: 220px; /* Prevent content from being hidden behind fixed footer */
     }
 }
+
